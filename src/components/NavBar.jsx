@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -13,10 +14,21 @@ import Logo from "@/assests/logo/logo.png";
 import { Button } from "./ui/button";
 import { User } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
-import { clickSignup } from "./buttonclicks/click";
-import { clickCart } from "./buttonclicks/click";
+
+import { useRouter } from "next/navigation";
 
 export default function Component() {
+  const router = useRouter();
+
+  const clickSignup = () => {
+    console.log("Clickd signup button");
+    router.push("/signup");
+  };
+
+  const clickCart = () => {
+    console.log("Clicked Card icon");
+    router.push("/cart");
+  };
   const navItems = [
     { id: 1, name: "Home", link: "/" },
     {
